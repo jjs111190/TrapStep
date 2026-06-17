@@ -15,7 +15,6 @@ export default class GameOverScene extends Phaser.Scene {
     completed: boolean;
   }) {
     const width = this.cameras.main.width;
-    const height = this.cameras.main.height;
 
     // Background
     this.createGradientBackground();

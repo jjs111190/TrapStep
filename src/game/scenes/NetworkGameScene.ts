@@ -44,8 +44,6 @@ export default class NetworkGameScene extends Phaser.Scene {
   private gameEnded: boolean = false;
 
   // UI
-  private roomCodeText!: Phaser.GameObjects.Text;
-  private modeText!: Phaser.GameObjects.Text;
   private statusText!: Phaser.GameObjects.Text;
 
   // Input
@@ -158,13 +156,13 @@ export default class NetworkGameScene extends Phaser.Scene {
         switch (tileType) {
           case 1: // Normal platform
             const platform = this.platforms.create(worldX + 16, worldY + 16, 'platform');
-            platform.setTint(COLORS.CORAL);
+            platform.setTint(COLORS.coral);
             break;
 
           case 2: // Disappearing floor
             const disappearing = new DisappearingFloor(this, worldX + 16, worldY + 16);
             this.traps.push(disappearing);
-            this.physics.add.overlap(this.localPlayer, disappearing, () => disappearing.activate(), undefined, this);
+            // DisappearingFloor automatically detects player contact
             break;
 
           case 3: // Falling block
@@ -194,7 +192,7 @@ export default class NetworkGameScene extends Phaser.Scene {
               this.localPlayer,
               spike,
               () => {
-                spike.revealManually(this.localPlayer.x, this.localPlayer.y);
+                spike.revealManually();
                 if (spike.isRevealed() && !this.localDied) {
                   this.onLocalPlayerDeath();
                 }
@@ -296,7 +294,7 @@ export default class NetworkGameScene extends Phaser.Scene {
     const { width } = this.cameras.main;
 
     // Room code
-    this.roomCodeText = this.add.text(width / 2, 20, `Room: ${this.roomCode}`, {
+    this.add.text(width / 2, 20, `Room: ${this.roomCode}`, {
       fontSize: '20px',
       color: '#4ECDC4',
       fontFamily: 'Arial',
@@ -306,7 +304,7 @@ export default class NetworkGameScene extends Phaser.Scene {
 
     // Game mode
     const modeLabel = this.gameMode === 'coop' ? 'CO-OP' : 'RACE';
-    this.modeText = this.add.text(width / 2, 50, modeLabel, {
+    this.add.text(width / 2, 50, modeLabel, {
       fontSize: '18px',
       color: '#FFE66D',
       fontFamily: 'Arial',
@@ -512,7 +510,7 @@ export default class NetworkGameScene extends Phaser.Scene {
     overlay.setScrollFactor(0);
 
     // Defeat text
-    const defeatText = this.add.text(width / 2, height / 2 - 60, message, {
+    this.add.text(width / 2, height / 2 - 60, message, {
       fontSize: '64px',
       color: '#F38181',
       fontFamily: 'Arial Black',
@@ -543,6 +541,5 @@ export default class NetworkGameScene extends Phaser.Scene {
     this.socketManager.off('playerDied');
     this.socketManager.off('playerReachedPortal');
     this.socketManager.off('gameOver');
-    super.shutdown();
   }
 }

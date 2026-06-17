@@ -10,7 +10,6 @@ export default class MenuScene extends Phaser.Scene {
 
   create() {
     const width = this.cameras.main.width;
-    const height = this.cameras.main.height;
 
     // Background gradient effect (simulated with multiple rectangles)
     this.createGradientBackground();
@@ -50,17 +49,17 @@ export default class MenuScene extends Phaser.Scene {
     progressText.setOrigin(0.5);
 
     // Play button
-    const playButton = this.createButton(width / 2, 380, 'PLAY', () => {
+    this.createButton(width / 2, 380, 'PLAY', () => {
       this.scene.start('GameScene', { level: 1 });
     });
 
     // Level Select button
-    const levelSelectButton = this.createButton(width / 2, 460, 'LEVEL SELECT', () => {
+    this.createButton(width / 2, 460, 'LEVEL SELECT', () => {
       this.showLevelSelect();
     });
 
     // Online Multiplayer button
-    const onlineButton = this.createButton(width / 2, 540, 'ONLINE MULTIPLAYER', () => {
+    this.createButton(width / 2, 540, 'ONLINE MULTIPLAYER', () => {
       const socketManager = getSocketManager();
       socketManager.connect().then(() => {
         this.scene.start('LobbyScene');
@@ -149,7 +148,7 @@ export default class MenuScene extends Phaser.Scene {
     title.setOrigin(0.5);
 
     // Back button
-    const backButton = this.createButton(width / 2, height - 60, 'BACK', () => {
+    this.createButton(width / 2, height - 60, 'BACK', () => {
       this.scene.restart();
     });
 
@@ -157,7 +156,6 @@ export default class MenuScene extends Phaser.Scene {
     const progress = getProgress();
     const totalLevels = getTotalLevels();
     const columns = 5;
-    const rows = Math.ceil(totalLevels / columns);
     const startX = 100;
     const startY = 120;
     const spacing = 120;

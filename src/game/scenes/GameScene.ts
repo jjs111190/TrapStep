@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { COLORS, TILE_SIZE } from '../config';
+import { TILE_SIZE } from '../config';
 import { loadLevel, LevelData } from '../../data/levels';
 import Player from '../entities/Player';
 import { DisappearingFloor } from '../traps/DisappearingFloor';
@@ -19,7 +19,6 @@ export default class GameScene extends Phaser.Scene {
   private deaths: number = 0;
   private timeText!: Phaser.GameObjects.Text;
   private deathText!: Phaser.GameObjects.Text;
-  private levelText!: Phaser.GameObjects.Text;
   private cursors!: Phaser.Types.Input.Keyboard.CursorKeys;
   private wasdKeys!: any;
   private mobileControls: { left: boolean; right: boolean; jump: boolean } = {
@@ -214,7 +213,7 @@ export default class GameScene extends Phaser.Scene {
     const width = this.cameras.main.width;
 
     // Level number
-    this.levelText = this.add.text(16, 16, `Level ${this.currentLevel}`, {
+    this.add.text(16, 16, `Level ${this.currentLevel}`, {
       fontSize: '20px',
       color: '#FFF4E6',
       fontStyle: 'bold'
@@ -237,10 +236,9 @@ export default class GameScene extends Phaser.Scene {
     // Restart hint
     const restartHint = this.add.text(width / 2, 50, 'Press R to restart', {
       fontSize: '14px',
-      color: '#FFF4E6',
-      alpha: 0.6
+      color: '#FFF4E6'
     });
-    restartHint.setOrigin(0.5, 0);
+    restartHint.setOrigin(0.5, 0).setAlpha(0.6);
 
     // R key to restart
     this.input.keyboard!.on('keydown-R', () => {

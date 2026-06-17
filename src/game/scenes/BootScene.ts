@@ -50,7 +50,7 @@ export default class BootScene extends Phaser.Scene {
 
   createPlayerGraphic() {
     // Create a small round robot character (16x16) - Player 1 (Coral)
-    const graphics = this.make.graphics({ x: 0, y: 0, add: false });
+    const graphics = this.make.graphics({});
 
     // Body (circle)
     graphics.fillStyle(COLORS.cream, 1);
@@ -73,7 +73,7 @@ export default class BootScene extends Phaser.Scene {
 
   createPlayer2Graphic() {
     // Create a small round robot character (16x16) - Player 2 (Mint)
-    const graphics = this.make.graphics({ x: 0, y: 0, add: false });
+    const graphics = this.make.graphics({});
 
     // Body (circle)
     graphics.fillStyle(COLORS.cream, 1);
@@ -96,7 +96,7 @@ export default class BootScene extends Phaser.Scene {
 
   createPortalGraphic() {
     // Create a glowing portal (32x32)
-    const graphics = this.make.graphics({ x: 0, y: 0, add: false });
+    const graphics = this.make.graphics({});
 
     // Outer glow
     graphics.fillStyle(COLORS.gold, 0.3);
@@ -116,7 +116,7 @@ export default class BootScene extends Phaser.Scene {
 
   createTileGraphics() {
     // Platform tile
-    const platformGraphics = this.make.graphics({ x: 0, y: 0, add: false });
+    const platformGraphics = this.make.graphics({});
     platformGraphics.fillStyle(COLORS.cream, 1);
     platformGraphics.fillRect(0, 0, 32, 32);
     platformGraphics.lineStyle(2, COLORS.navy, 0.3);
@@ -125,7 +125,7 @@ export default class BootScene extends Phaser.Scene {
     platformGraphics.destroy();
 
     // Trap tile (looks same as platform initially)
-    const trapGraphics = this.make.graphics({ x: 0, y: 0, add: false });
+    const trapGraphics = this.make.graphics({});
     trapGraphics.fillStyle(COLORS.cream, 1);
     trapGraphics.fillRect(0, 0, 32, 32);
     trapGraphics.lineStyle(2, COLORS.navy, 0.3);
@@ -134,7 +134,7 @@ export default class BootScene extends Phaser.Scene {
     trapGraphics.destroy();
 
     // Moving wall
-    const wallGraphics = this.make.graphics({ x: 0, y: 0, add: false });
+    const wallGraphics = this.make.graphics({});
     wallGraphics.fillStyle(COLORS.danger, 1);
     wallGraphics.fillRect(0, 0, 32, 32);
     wallGraphics.lineStyle(2, COLORS.navy, 0.5);
@@ -143,7 +143,7 @@ export default class BootScene extends Phaser.Scene {
     wallGraphics.destroy();
 
     // Spike
-    const spikeGraphics = this.make.graphics({ x: 0, y: 0, add: false });
+    const spikeGraphics = this.make.graphics({});
     spikeGraphics.fillStyle(COLORS.danger, 1);
     spikeGraphics.fillTriangle(16, 0, 0, 32, 32, 32);
     spikeGraphics.generateTexture('spike', 32, 32);

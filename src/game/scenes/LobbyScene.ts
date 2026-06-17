@@ -9,7 +9,6 @@ export default class LobbyScene extends Phaser.Scene {
   private selectedMode: 'coop' | 'race' = 'coop';
 
   // UI elements
-  private titleText!: Phaser.GameObjects.Text;
   private createRoomBtn!: Phaser.GameObjects.Container;
   private joinRoomBtn!: Phaser.GameObjects.Container;
   private quickMatchBtn!: Phaser.GameObjects.Container;
@@ -39,7 +38,7 @@ export default class LobbyScene extends Phaser.Scene {
     this.add.rectangle(width / 2, height / 2, width, height, 0x2C3E50);
 
     // Title
-    this.titleText = this.add.text(width / 2, 80, 'ONLINE MULTIPLAYER', {
+    this.add.text(width / 2, 80, 'ONLINE MULTIPLAYER', {
       fontSize: '48px',
       color: '#FF6B6B',
       fontFamily: 'Arial Black',
@@ -89,7 +88,7 @@ export default class LobbyScene extends Phaser.Scene {
   }
 
   private createRoomUI(): void {
-    const { width, height } = this.cameras.main;
+    const { width } = this.cameras.main;
     this.roomContainer = this.add.container(0, 0).setVisible(false);
 
     // Room code display
@@ -253,7 +252,7 @@ export default class LobbyScene extends Phaser.Scene {
     });
 
     // Player joined the room
-    this.socketManager.on('playerJoined', (data: { playerNumber: number }) => {
+    this.socketManager.on('playerJoined', () => {
       this.playerCount = 2;
       this.updateWaitingText();
       if (this.isHost) {
@@ -379,6 +378,5 @@ export default class LobbyScene extends Phaser.Scene {
     if (this.roomCodeInput && this.roomCodeInput.parentNode) {
       this.roomCodeInput.parentNode.removeChild(this.roomCodeInput);
     }
-    super.shutdown();
   }
 }

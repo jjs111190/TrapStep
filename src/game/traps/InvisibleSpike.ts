@@ -62,7 +62,7 @@ export class InvisibleSpike extends Phaser.Physics.Arcade.Sprite {
   }
 
   // Public reveal method for manual triggering (used in NetworkGameScene)
-  public revealManually(playerX: number, playerY: number) {
+  public revealManually() {
     if (!this.revealed) {
       this.reveal();
     }
