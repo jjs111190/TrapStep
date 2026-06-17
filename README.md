@@ -2,7 +2,25 @@
 
 A tricky 2D platformer game with hidden traps. Watch your step!
 
-🎮 **Play online:** [Coming soon - Deploy your own for free!]
+🎮 **Play online:** Deploy your own for FREE! → [10분 배포 가이드](QUICKSTART_CLOUDFLARE.md)
+
+## 🚀 빠른 배포 (완전 무료!)
+
+**Cloudflare Pages + Render로 10분 안에 전 세계 배포**
+
+```bash
+# 1. GitHub에 올리기 (이미 준비됨!)
+git remote add origin https://github.com/YOUR_USERNAME/TrapStep.git
+git push -u origin main
+
+# 2. 웹 UI에서 클릭만으로 배포
+# → 상세 가이드: CLOUDFLARE_COMPLETE_GUIDE.md
+```
+
+**📖 배포 가이드:**
+- ⚡ [빠른 시작 (10분)](QUICKSTART_CLOUDFLARE.md) - 3단계로 끝내기
+- 📚 [완벽 가이드](CLOUDFLARE_COMPLETE_GUIDE.md) - 스크린샷과 함께 상세 설명
+- 💰 **완전 무료** - Cloudflare Pages + Render (750시간/월)
 
 ## Features
 
