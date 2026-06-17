@@ -188,13 +188,13 @@ export default class NetworkGameScene extends Phaser.Scene {
             break;
 
           case 5: // Invisible spike
-            const spike = new InvisibleSpike(this, worldX + 16, worldY + 16);
+            const spike = new InvisibleSpike(this, worldX + 16, worldY + 16, this.localPlayer);
             this.traps.push(spike);
             this.physics.add.overlap(
               this.localPlayer,
               spike,
               () => {
-                spike.reveal(this.localPlayer.x, this.localPlayer.y);
+                spike.revealManually(this.localPlayer.x, this.localPlayer.y);
                 if (spike.isRevealed() && !this.localDied) {
                   this.onLocalPlayerDeath();
                 }

@@ -28,7 +28,8 @@ export class MovingWall extends Phaser.Physics.Arcade.Sprite {
     this.speed = speed;
 
     this.setImmovable(true);
-    this.body!.setAllowGravity(false);
+    const body = this.body as Phaser.Physics.Arcade.Body;
+    body.setAllowGravity(false);
 
     // Start moving
     this.startMoving(scene);

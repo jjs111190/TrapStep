@@ -18,7 +18,8 @@ export class InvisibleSpike extends Phaser.Physics.Arcade.Sprite {
 
     this.player = player;
     this.setAlpha(0); // Start invisible
-    this.body!.setAllowGravity(false);
+    const body = this.body as Phaser.Physics.Arcade.Body;
+    body.setAllowGravity(false);
     this.setImmovable(true);
   }
 
@@ -58,6 +59,17 @@ export class InvisibleSpike extends Phaser.Physics.Arcade.Sprite {
       repeat: -1,
       ease: 'Sine.easeInOut'
     });
+  }
+
+  // Public reveal method for manual triggering (used in NetworkGameScene)
+  public revealManually(playerX: number, playerY: number) {
+    if (!this.revealed) {
+      this.reveal();
+    }
+  }
+
+  isRevealed(): boolean {
+    return this.revealed;
   }
 
   isVisible(): boolean {

@@ -2,7 +2,6 @@ import Phaser from 'phaser';
 
 export class FallingBlock extends Phaser.Physics.Arcade.Sprite {
   private triggered: boolean = false;
-  private originalY: number;
 
   constructor(scene: Phaser.Scene, x: number, y: number) {
     super(scene, x, y, 'platform');
@@ -10,7 +9,6 @@ export class FallingBlock extends Phaser.Physics.Arcade.Sprite {
     scene.add.existing(this);
     scene.physics.add.existing(this, true); // static initially
 
-    this.originalY = y;
     this.setTint(0xFFDDDD); // Slightly different color hint
   }
 

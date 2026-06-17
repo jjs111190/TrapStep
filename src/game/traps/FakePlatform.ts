@@ -10,7 +10,8 @@ export class FakePlatform extends Phaser.Physics.Arcade.Sprite {
     // Looks like a platform but doesn't provide collision
     // Instead, it kills the player on overlap
     this.setTint(0xFFEEEE); // Slightly different color
-    this.body!.setAllowGravity(false);
+    const body = this.body as Phaser.Physics.Arcade.Body;
+    body.setAllowGravity(false);
     this.setImmovable(true);
 
     // Subtle pulsing to hint something is off
