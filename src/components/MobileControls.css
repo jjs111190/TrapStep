@@ -1,0 +1,68 @@
+.mobile-controls {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 180px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 20px;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.left-controls,
+.right-controls {
+  display: flex;
+  gap: 15px;
+  pointer-events: auto;
+}
+
+.control-button {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid #FFF4E6;
+  background: rgba(255, 127, 127, 0.8);
+  color: #FFF4E6;
+  font-size: 32px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: all 0.1s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.control-button:active {
+  transform: scale(0.9);
+  background: rgba(255, 127, 127, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.jump-button {
+  width: 100px;
+  height: 100px;
+  font-size: 18px;
+  background: rgba(255, 215, 0, 0.8);
+  border-color: #FFF4E6;
+}
+
+.jump-button:active {
+  background: rgba(255, 215, 0, 1);
+}
+
+/* Prevent text selection on buttons */
+.control-button::selection {
+  background: transparent;
+}
+
+.control-button::-moz-selection {
+  background: transparent;
+}
