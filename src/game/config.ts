@@ -10,20 +10,20 @@ export const GAME_WIDTH = 800;
 export const GAME_HEIGHT = 600;
 export const TILE_SIZE = 32;
 
-// Color palette (Coral/Navy/Cream)
+// Color palette (Level Devil inspired - Black/Green/Yellow)
 export const COLORS = {
-  coral: 0xFF7F7F,
-  navy: 0x2D3E50,
-  cream: 0xFFF4E6,
-  gold: 0xFFD700,
-  danger: 0xFF4444
+  black: 0x0A0A0A,      // Deep black background
+  green: 0x00FF41,      // Bright neon green
+  yellow: 0xFFFF00,     // Bright yellow
+  white: 0xFFFFFF,      // Pure white
+  red: 0xFF0000         // Bright red for danger
 };
 
 export const gameConfig: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
   width: GAME_WIDTH,
   height: GAME_HEIGHT,
-  backgroundColor: '#2D3E50',
+  backgroundColor: '#0A0A0A',
   parent: 'game-container',
   physics: {
     default: 'arcade',

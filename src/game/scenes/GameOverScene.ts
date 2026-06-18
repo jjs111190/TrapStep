@@ -131,11 +131,11 @@ export default class GameOverScene extends Phaser.Scene {
   createButton(x: number, y: number, text: string, onClick: () => void) {
     const button = this.add.container(x, y);
 
-    const bg = this.add.rectangle(0, 0, 150, 50, COLORS.cream);
+    const bg = this.add.rectangle(0, 0, 150, 50, COLORS.green);
     const label = this.add.text(0, 0, text, {
       fontSize: '20px',
-      color: '#2D3E50',
-      fontStyle: 'bold'
+      color: '#0A0A0A',
+      fontFamily: 'Arial Black'
     });
     label.setOrigin(0.5);
 
@@ -147,13 +147,13 @@ export default class GameOverScene extends Phaser.Scene {
     );
 
     button.on('pointerover', () => {
-      bg.setFillStyle(COLORS.coral);
-      label.setColor('#FFF4E6');
+      bg.setFillStyle(COLORS.yellow);
+      label.setColor('#0A0A0A');
     });
 
     button.on('pointerout', () => {
-      bg.setFillStyle(COLORS.cream);
-      label.setColor('#2D3E50');
+      bg.setFillStyle(COLORS.green);
+      label.setColor('#0A0A0A');
     });
 
     button.on('pointerdown', onClick);

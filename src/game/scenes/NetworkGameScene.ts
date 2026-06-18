@@ -156,7 +156,7 @@ export default class NetworkGameScene extends Phaser.Scene {
         switch (tileType) {
           case 1: // Normal platform
             const platform = this.platforms.create(worldX + 16, worldY + 16, 'platform');
-            platform.setTint(COLORS.coral);
+            platform.setTint(COLORS.green);
             break;
 
           case 2: // Disappearing floor

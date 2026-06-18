@@ -11,26 +11,25 @@ export default class MenuScene extends Phaser.Scene {
   create() {
     const width = this.cameras.main.width;
 
-    // Background gradient effect (simulated with multiple rectangles)
-    this.createGradientBackground();
+    // Simple black background (no gradient - minimal style)
+    this.add.rectangle(width / 2, 300, 800, 600, COLORS.black);
 
-    // Title
-    const title = this.add.text(width / 2, 150, 'TrapStep', {
-      fontSize: '72px',
-      color: '#FFF4E6',
-      fontStyle: 'bold'
+    // Title - bright green
+    const title = this.add.text(width / 2, 150, 'TRAPSTEP', {
+      fontSize: '84px',
+      color: '#00FF41',
+      fontFamily: 'Arial Black'
     });
     title.setOrigin(0.5);
 
-    // Subtitle
-    const subtitle = this.add.text(width / 2, 220, 'Watch your step...', {
-      fontSize: '24px',
-      color: '#FF7F7F',
-      fontStyle: 'italic'
+    // Subtitle - yellow
+    const subtitle = this.add.text(width / 2, 220, 'Nothing is safe.', {
+      fontSize: '20px',
+      color: '#FFFF00'
     });
     subtitle.setOrigin(0.5);
 
-    // Progress info
+    // Progress info - white
     const progress = getProgress();
     const totalLevels = getTotalLevels();
     const completedLevels = Object.keys(progress).filter(
@@ -39,11 +38,11 @@ export default class MenuScene extends Phaser.Scene {
 
     const progressText = this.add.text(
       width / 2,
-      300,
-      `Progress: ${completedLevels}/${totalLevels} levels`,
+      280,
+      `${completedLevels}/${totalLevels}`,
       {
         fontSize: '18px',
-        color: '#FFF4E6'
+        color: '#FFFFFF'
       }
     );
     progressText.setOrigin(0.5);
@@ -100,29 +99,29 @@ export default class MenuScene extends Phaser.Scene {
   createButton(x: number, y: number, text: string, onClick: () => void) {
     const button = this.add.container(x, y);
 
-    const bg = this.add.rectangle(0, 0, 200, 50, COLORS.cream);
+    const bg = this.add.rectangle(0, 0, 240, 50, COLORS.green);
     const label = this.add.text(0, 0, text, {
       fontSize: '20px',
-      color: '#2D3E50',
-      fontStyle: 'bold'
+      color: '#0A0A0A',
+      fontFamily: 'Arial Black'
     });
     label.setOrigin(0.5);
 
     button.add([bg, label]);
-    button.setSize(200, 50);
+    button.setSize(240, 50);
     button.setInteractive(
-      new Phaser.Geom.Rectangle(-100, -25, 200, 50),
+      new Phaser.Geom.Rectangle(-120, -25, 240, 50),
       Phaser.Geom.Rectangle.Contains
     );
 
     button.on('pointerover', () => {
-      bg.setFillStyle(COLORS.coral);
-      label.setColor('#FFF4E6');
+      bg.setFillStyle(COLORS.yellow);
+      label.setColor('#0A0A0A');
     });
 
     button.on('pointerout', () => {
-      bg.setFillStyle(COLORS.cream);
-      label.setColor('#2D3E50');
+      bg.setFillStyle(COLORS.green);
+      label.setColor('#0A0A0A');
     });
 
     button.on('pointerdown', onClick);
@@ -182,11 +181,11 @@ export default class MenuScene extends Phaser.Scene {
   ) {
     const button = this.add.container(x, y);
 
-    const bg = this.add.circle(0, 0, 30, unlocked ? COLORS.cream : COLORS.navy);
+    const bg = this.add.circle(0, 0, 30, unlocked ? COLORS.green : COLORS.black);
     const label = this.add.text(0, 0, level.toString(), {
       fontSize: '24px',
-      color: unlocked ? '#2D3E50' : '#666666',
-      fontStyle: 'bold'
+      color: unlocked ? '#0A0A0A' : '#666666',
+      fontFamily: 'Arial Black'
     });
     label.setOrigin(0.5);
 
@@ -211,13 +210,13 @@ export default class MenuScene extends Phaser.Scene {
       );
 
       button.on('pointerover', () => {
-        bg.setFillStyle(COLORS.coral);
-        label.setColor('#FFF4E6');
+        bg.setFillStyle(COLORS.yellow);
+        label.setColor('#0A0A0A');
       });
 
       button.on('pointerout', () => {
-        bg.setFillStyle(COLORS.cream);
-        label.setColor('#2D3E50');
+        bg.setFillStyle(COLORS.green);
+        label.setColor('#0A0A0A');
       });
 
       button.on('pointerdown', () => {
