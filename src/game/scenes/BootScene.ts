@@ -49,34 +49,58 @@ export default class BootScene extends Phaser.Scene {
   }
 
   createPlayerGraphic() {
-    // Create a simple square character (16x16) - Player 1 (Green)
+    // Create pixel art person (16x16) - Player 1 (Green)
     const graphics = this.make.graphics({});
 
-    // Simple solid square - minimal design
+    // Head
     graphics.fillStyle(COLORS.green, 1);
-    graphics.fillRect(2, 2, 12, 12);
+    graphics.fillRect(5, 2, 6, 4);
 
-    // Small white eyes for character
+    // Eyes
     graphics.fillStyle(COLORS.black, 1);
-    graphics.fillRect(4, 5, 3, 3);
-    graphics.fillRect(9, 5, 3, 3);
+    graphics.fillRect(6, 3, 1, 1);
+    graphics.fillRect(9, 3, 1, 1);
+
+    // Body
+    graphics.fillStyle(COLORS.green, 1);
+    graphics.fillRect(5, 6, 6, 4);
+
+    // Arms
+    graphics.fillRect(3, 7, 2, 2);
+    graphics.fillRect(11, 7, 2, 2);
+
+    // Legs
+    graphics.fillRect(6, 10, 2, 4);
+    graphics.fillRect(8, 10, 2, 4);
 
     graphics.generateTexture('player', 16, 16);
     graphics.destroy();
   }
 
   createPlayer2Graphic() {
-    // Create a simple square character (16x16) - Player 2 (Yellow)
+    // Create pixel art person (16x16) - Player 2 (Yellow)
     const graphics = this.make.graphics({});
 
-    // Simple solid square - minimal design
+    // Head
     graphics.fillStyle(COLORS.yellow, 1);
-    graphics.fillRect(2, 2, 12, 12);
+    graphics.fillRect(5, 2, 6, 4);
 
-    // Small black eyes for character
+    // Eyes
     graphics.fillStyle(COLORS.black, 1);
-    graphics.fillRect(4, 5, 3, 3);
-    graphics.fillRect(9, 5, 3, 3);
+    graphics.fillRect(6, 3, 1, 1);
+    graphics.fillRect(9, 3, 1, 1);
+
+    // Body
+    graphics.fillStyle(COLORS.yellow, 1);
+    graphics.fillRect(5, 6, 6, 4);
+
+    // Arms
+    graphics.fillRect(3, 7, 2, 2);
+    graphics.fillRect(11, 7, 2, 2);
+
+    // Legs
+    graphics.fillRect(6, 10, 2, 4);
+    graphics.fillRect(8, 10, 2, 4);
 
     graphics.generateTexture('player2', 16, 16);
     graphics.destroy();
